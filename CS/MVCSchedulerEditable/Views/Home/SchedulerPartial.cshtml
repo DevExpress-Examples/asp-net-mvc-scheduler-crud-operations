@@ -1,0 +1,17 @@
+@*#region #SchedulerPartial*@
+@Html.DevExpress().Scheduler(
+settings => {
+    settings.Name = "scheduler";
+    settings.CallbackRouteValues = new { Controller = "Home", Action = "SchedulerPartial" };
+    settings.EditAppointmentRouteValues = new { Controller = "Home", Action = "EditAppointment" };
+    settings.Storage.Appointments.Assign(MVCSchedulerEditable.Models.SchedulerStorageProvider.DefaultAppointmentStorage);
+    settings.Storage.Resources.Assign(MVCSchedulerEditable.Models.SchedulerStorageProvider.DefaultResourceStorage);
+
+    settings.Storage.EnableReminders = true;
+
+    settings.ActiveViewType = SchedulerViewType.FullWeek;
+    settings.Views.FullWeekView.Styles.ScrollAreaHeight = 600;
+    settings.Start = new DateTime(2015, 4, 18);
+    
+}).Bind(Model.Appointments, Model.Resources).GetHtml()
+@*#endregion #SchedulerPartial*@
