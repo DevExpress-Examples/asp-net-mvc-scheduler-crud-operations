@@ -1,3 +1,13 @@
+<!-- default file list -->
+*Files to look at*:
+
+* [HomeController.cs](./CS/MVCSchedulerEditable/Controllers/HomeController.cs) (VB: [HomeController.vb](./VB/MVCSchedulerEditable/Controllers/HomeController.vb))
+* [AppointmentDataAccessor.cs](./CS/MVCSchedulerEditable/Models/AppointmentDataAccessor.cs) (VB: [AppointmentDataAccessor.vb](./VB/MVCSchedulerEditable/Models/AppointmentDataAccessor.vb))
+* [SchedulerDataObject.cs](./CS/MVCSchedulerEditable/Models/SchedulerDataObject.cs) (VB: [SchedulerDataObject.vb](./VB/MVCSchedulerEditable/Models/SchedulerDataObject.vb))
+* [SchedulerStorageProvider.cs](./CS/MVCSchedulerEditable/Models/SchedulerStorageProvider.cs) (VB: [SchedulerStorageProvider.vb](./VB/MVCSchedulerEditable/Models/SchedulerStorageProvider.vb))
+* [Index.cshtml](./CS/MVCSchedulerEditable/Views/Home/Index.cshtml)
+* [SchedulerPartial.cshtml](./CS/MVCSchedulerEditable/Views/Home/SchedulerPartial.cshtml)
+<!-- default file list end -->
 # Scheduler - Lesson 2 - Insert-Update-Delete appointment feature
 
 
