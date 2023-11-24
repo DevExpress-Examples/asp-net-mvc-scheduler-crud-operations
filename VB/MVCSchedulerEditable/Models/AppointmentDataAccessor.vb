@@ -1,27 +1,22 @@
-﻿Imports System.Linq
+Imports System.Linq
 
 Namespace MVCSchedulerEditable.Models
-    #Region "#AppointmentDataAccessor"
+
+'#Region "#AppointmentDataAccessor"
     Public Class AppointmentDataAccessor
+
         Public Shared Sub InsertAppointment(ByVal appt As DBAppointment)
-            If appt Is Nothing Then
-                Return
-            End If
-            Dim db As New SchedulingDataClassesDataContext()
+            If appt Is Nothing Then Return
+            Dim db As SchedulingDataClassesDataContext = New SchedulingDataClassesDataContext()
             appt.UniqueID = appt.GetHashCode()
             db.DBAppointments.InsertOnSubmit(appt)
             db.SubmitChanges()
         End Sub
-        Public Shared Sub UpdateAppointment(ByVal appt As DBAppointment)
-            If appt Is Nothing Then
-                Return
-            End If
-            Dim db As New SchedulingDataClassesDataContext()
-            Dim query As DBAppointment = CType(( _
-                From carSchedule In db.DBAppointments _
-                Where carSchedule.UniqueID = appt.UniqueID _
-                Select carSchedule).SingleOrDefault(), DBAppointment)
 
+        Public Shared Sub UpdateAppointment(ByVal appt As DBAppointment)
+            If appt Is Nothing Then Return
+            Dim db As SchedulingDataClassesDataContext = New SchedulingDataClassesDataContext()
+            Dim query As DBAppointment = CType((From carSchedule In db.DBAppointments Where carSchedule.UniqueID = appt.UniqueID Select carSchedule).SingleOrDefault(), DBAppointment)
             query.UniqueID = appt.UniqueID
             query.StartDate = appt.StartDate
             query.EndDate = appt.EndDate
@@ -37,15 +32,13 @@ Namespace MVCSchedulerEditable.Models
             query.ResourceID = appt.ResourceID
             db.SubmitChanges()
         End Sub
+
         Public Shared Sub RemoveAppointment(ByVal appt As DBAppointment)
-            Dim db As New SchedulingDataClassesDataContext()
-            Dim query As DBAppointment = CType(( _
-                From carSchedule In db.DBAppointments _
-                Where carSchedule.UniqueID = appt.UniqueID _
-                Select carSchedule).SingleOrDefault(), DBAppointment)
+            Dim db As SchedulingDataClassesDataContext = New SchedulingDataClassesDataContext()
+            Dim query As DBAppointment = CType((From carSchedule In db.DBAppointments Where carSchedule.UniqueID = appt.UniqueID Select carSchedule).SingleOrDefault(), DBAppointment)
             db.DBAppointments.DeleteOnSubmit(query)
             db.SubmitChanges()
         End Sub
     End Class
-    #End Region ' #AppointmentDataAccessor
+'#End Region  ' #AppointmentDataAccessor
 End Namespace

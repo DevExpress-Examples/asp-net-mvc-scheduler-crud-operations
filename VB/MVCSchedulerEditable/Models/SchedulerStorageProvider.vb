@@ -1,21 +1,21 @@
-﻿Imports DevExpress.Web.Mvc
+Imports DevExpress.Web.Mvc
 
 Namespace MVCSchedulerEditable.Models
-#Region "#SchedulerStorageProvider"
+
+'#Region "#SchedulerStorageProvider"
     Public Class SchedulerStorageProvider
 
-        Private Shared defaultAppointmentStorage_Renamed As MVCxAppointmentStorage
-        Public Shared ReadOnly Property DefaultAppointmentStorage() As MVCxAppointmentStorage
+        Private Shared defaultAppointmentStorageField As MVCxAppointmentStorage
+
+        Public Shared ReadOnly Property DefaultAppointmentStorage As MVCxAppointmentStorage
             Get
-                If defaultAppointmentStorage_Renamed Is Nothing Then
-                    defaultAppointmentStorage_Renamed = CreateDefaultAppointmentStorage()
-                End If
-                Return defaultAppointmentStorage_Renamed
+                If defaultAppointmentStorageField Is Nothing Then defaultAppointmentStorageField = CreateDefaultAppointmentStorage()
+                Return defaultAppointmentStorageField
             End Get
         End Property
 
         Private Shared Function CreateDefaultAppointmentStorage() As MVCxAppointmentStorage
-            Dim appointmentStorage As New MVCxAppointmentStorage()
+            Dim appointmentStorage As MVCxAppointmentStorage = New MVCxAppointmentStorage()
             appointmentStorage.Mappings.AppointmentId = "UniqueID"
             appointmentStorage.Mappings.Start = "StartDate"
             appointmentStorage.Mappings.End = "EndDate"
@@ -32,22 +32,21 @@ Namespace MVCSchedulerEditable.Models
             Return appointmentStorage
         End Function
 
+        Private Shared defaultResourceStorageField As MVCxResourceStorage
 
-        Private Shared defaultResourceStorage_Renamed As MVCxResourceStorage
-        Public Shared ReadOnly Property DefaultResourceStorage() As MVCxResourceStorage
+        Public Shared ReadOnly Property DefaultResourceStorage As MVCxResourceStorage
             Get
-                If defaultResourceStorage_Renamed Is Nothing Then
-                    defaultResourceStorage_Renamed = CreateDefaultResourceStorage()
-                End If
-                Return defaultResourceStorage_Renamed
+                If defaultResourceStorageField Is Nothing Then defaultResourceStorageField = CreateDefaultResourceStorage()
+                Return defaultResourceStorageField
             End Get
         End Property
+
         Private Shared Function CreateDefaultResourceStorage() As MVCxResourceStorage
-            Dim resourceStorage As New MVCxResourceStorage()
+            Dim resourceStorage As MVCxResourceStorage = New MVCxResourceStorage()
             resourceStorage.Mappings.ResourceId = "ResourceID"
             resourceStorage.Mappings.Caption = "ResourceName"
             Return resourceStorage
         End Function
     End Class
-#End Region ' #SchedulerStorageProvider
+'#End Region  ' #SchedulerStorageProvider
 End Namespace
