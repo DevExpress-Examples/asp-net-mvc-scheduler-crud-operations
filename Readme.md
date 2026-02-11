@@ -29,7 +29,7 @@ Refer to the following article for more information: [Lesson 2 - Implement the I
 
 * [Scheduler for ASP.NET MVC - How to display read-only appointments](https://github.com/DevExpress-Examples/asp-net-mvc-scheduler-display-read-only-appointments)
 <!-- feedback -->
-## Does This Example Address Your Development Requirements/Objectives?
+## Does this example address your development requirements/objectives?
 
 [<img src="https://www.devexpress.com/support/examples/i/yes-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=asp-net-mvc-scheduler-crud-operations&~~~was_helpful=yes) [<img src="https://www.devexpress.com/support/examples/i/no-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=asp-net-mvc-scheduler-crud-operations&~~~was_helpful=no)
 
